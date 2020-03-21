@@ -2,7 +2,7 @@
 A developer checklist derived from the book Clean Code by Robert C Martin 
 
 ## Table of contents :bookmark_tabs:
-- [Meaningful Names](#meaningful-names)
+- [Meaningful Names](#meaningful-names-name_badge)
 
 ## Meaningful Names :name_badge:
 
