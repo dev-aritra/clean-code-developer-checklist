@@ -2,9 +2,8 @@
 A developer checklist derived from the book Clean Code by Robert C Martin 
 
 ## Table of contents
-- [Naming] (#naming)
+- [Naming things](#naming-things)
 
+### Naming things
 
-<a name="naming">
-## Naming
 
