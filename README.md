@@ -7,10 +7,6 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 
 <br/>
 
----
-
-<br/>
-
 
 ## Meaningful Names :u5272:
 
