@@ -2,12 +2,13 @@
 A developer checklist derived from the book Clean Code by Robert C Martin 
 
 ## Table of contents :bookmark_tabs:
-- [Meaningful Names](#meaningful-names-name_badge)
+  - [Meaningful Names](#meaningful-names-u5272)
+  - [Functions](#functions-microscope)
 
-## Meaningful Names :name_badge:
+## Meaningful Names :u5272:
 
 - [x] **Name should reveal intent**
-  - It should tell you why it exists, what it does, and how it is used.
+   It should tell you why it exists, what it does, and how it is used.
   - Name should depict the context.
 
 - [x] **Avoid using abbreviations**
@@ -53,5 +54,13 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - For application “Gas Station Deluxe,” it is a bad idea to prefix every class with `GSD`.
   - For example use `AccountAddress` instead of `GSDAccountAddress`
 
+- [x] **It's okay to use computer science terms, algorithm names, pattern names, math terms**
+  - Always using the problem domain to get names might result in complication, hence we can use solution domain names on need.
+
 - [x] **Add no more context to a name than is necessary**
   - Shorter names are generally better than longer ones, so long as they are clear.
+
+---
+## Functions :microscope:
+
+
