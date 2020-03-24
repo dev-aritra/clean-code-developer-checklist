@@ -105,16 +105,21 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 
 - [x] **When a function need more than 2 or 3 arguments, if possible wrap some of those arguments into a class of their own**
 
+- [x] **Functions should not have any side-effect**
+  - It should do one thing, which the name suggests and not do anything else.
+
 - [x] **Functions should either do something or answer something (command query separation)**
   - Either function should change the state of something, or it should return something.
 
 - [x] **Prefer exceptions to returning error codes**
   - When you return an error code, you create the problem that the caller must deal with the error immediately.
+  - Also using Error `enum` is creating a dependency magnet, multiple classes must import and use them.
 
 - [x] **Extract Try/Catch Blocks**
   - Error handing is one thing. Thus, a function that handles errors should do nothing else.
   - If the keyword try exists in a function, it should be the very first word in the function and that there should be nothing after the catch/finally blocks.
 
 - [x] **Avoid code duplication**
+  - The DRY principle.
 
 
