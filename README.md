@@ -185,7 +185,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 ## Objects and Data Structures :two_men_holding_hands:
 
 - [x] **Hide implementation of classes with Abstraction**
-  - Do not push variables out through getters and setters. Rather have abstract interfaces that allow users to manipulate the data, without having to know its implementation.
+  - Do not expose variables out through getters and setters. Rather have abstract interfaces that allow users to manipulate the data, without having to know its implementation.
   - We do not want to expose the details of our data. Rather we want to express our data in abstract terms.
 
 - [x] **Data/object anti-symmetry**
@@ -219,6 +219,91 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - This might result in feature envy smell, as we are exposing access to variables, the caller might be tempted to use them.
 
 - [x] **DTOs should not have any behavior , i.e. they should be data-structure and not objects**
+
+<br/>
+
+---
+
+<br/>
+
+## Error handling :interrobang:
+
+- [x] **Error handling is important, but if it obscures logic, it’s wrong**
+  - If your codebase has to many error handler spread across different modules, then by default the code becomes unreadable.
+  
+- [x] **Use unchecked exceptions**
+  - Checked exceptions is an `Open/Closed Principle` violation. If you throw a checked exception from a method in your code and the catch is three levels above, you must declare that exception in the signature of each method between you and the catch. This means that a change at a low level of the code can force signature changes on many higher levels.
+  - `Encapsulation` is also broken because all functions in the path of a throw must know about details of that low-level exception.
+
+- [x] **Provide context with exceptions**
+  - Create informative error messages and pass them along with your exceptions. 
+  - Mention the operation that failed and the type of failure.
+  - Pass on the stack trace.
+
+- [x] **Define exception classes in terms of a caller’s needs**
+  - Define the exception in such a way that the caller can take a decision based on the exception only. 
+  - Use different classes only if there are times when you want to catch one exception and allow the other one to pass through.
+  
+- [x] **If a portion of code throws many types of exception, wrap that part and throw a common exception**
+  - Using the information sent with the exception we should be able to distinguish the errors. 
+  
+- [x] **Wrap your third party API calls**
+  - When you wrap a third-party API, you minimize your dependencies upon it. 
+  - You can choose to move to a different library in the future without much penalty. 
+  - Wrapping also makes it easier to mock out third-party calls when you are testing your own code.
+
+- [x] **Instead of having a special flow for exception, use special case pattern**
+  - From this
+    ```
+    try {
+      MealExpenses expenses = expenseReportDAO.getMeals(employee.getID());
+      m_total += expenses.getTotal();
+    } catch (MealExpensesNotFound e) {
+      m_total += getMealPerDiem();
+    }
+    ```
+      to this
+      ```
+      MealExpenses expenses = expenseReportDAO.getMeals(employee.getID());
+      m_total += expenses.getTotal();
+      ```
+      ```
+      public class PerDiemMealExpenses implements MealExpenses {
+        public int getTotal() {
+          // return the per diem default
+        }
+      }
+      ```
+  - You basically create a class which it handles a special case for you. Hence the client code doesn’t have to deal with exceptional behavior.
+
+- [x] **Don’t return null**
+  - When we return null, the caller needs to have a null check.
+  - Remedy to this can be
+    - Special case object.
+    - Returning empty list.
+
+- [x] **Don’t pass null as arguments**
+  - If you pass null, then the callee has to always check for null args.
+    ```
+    public double xProjection(Point p1, Point p2) {
+      if (p1 == null || p2 == null) {
+         throw InvalidArgumentException(
+           “Invalid argument for MetricsCalculator.xProjection”);
+      }
+      return (p2.x – p1.x) * 1.5;
+    }
+    ```
+    a cleaner way to do this could be
+    ```
+    public double xProjection(Point p1, Point p2) {
+       assert p1 != null : “p1 should not be null”;
+       assert p2 != null : “p2 should not be null”;
+       return (p2.x – p1.x) * 1.5;
+    }
+    ```
+    But this also doesn't solve the problem, instead of `NullPointerException` we are going to get some different `RuntimeException`
+
+  
   
 
 
