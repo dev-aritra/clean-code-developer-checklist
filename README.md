@@ -6,6 +6,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - [Functions](#functions-microscope)
   - [Formatting](#formatting-rainbow)
   - [Objects and Data Structures](#objects-and-data-structures-two_men_holding_hands)
+  - [Error handling](#error-handling-interrobang)
 
 <br/>
 
