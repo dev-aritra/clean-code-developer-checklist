@@ -11,57 +11,57 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 
 ## Meaningful Names :u5272:
 
-- [x] ****Name should reveal intent****
+- [x] **Name should reveal intent**
   - It should tell you why it exists, what it does, and how it is used.
   - Name should depict the context.
 
-- [x] ****Avoid using abbreviations****
+- [x] **Avoid using abbreviations**
   - Use `hypotenuse` instead of `hp`.
 
-- [x] ****Do not encode name with data structure****
+- [x] **Do not encode name with data structure**
   - Use `accounts` instead of `accountList`.
 
-- [x] ****Do not use names which vary in small ways****
+- [x] **Do not use names which vary in small ways**
   - Find the difference between `ControllerForEfficientHandlingOfStrings` and `ControllerForEfficientStorageOfStrings` :dancers:
 
-- [x] ****Do not name variables just to satisfy the compiler****
+- [x] **Do not name variables just to satisfy the compiler**
   - Don't name something `name1` cause `name` is already taken.
 
-- [x] ****Avoid using noise words****
+- [x] **Avoid using noise words**
   - `ProductData` and `ProductInfo` kind of means the same thing.
   - Similarly words like `a`, `an`, `the` are also noise words.
   - Noise words are also **redundant**, use `name` instead of `nameString`.
 
-- [x] ****Distinguish names in such a way that the reader knows which one to call.****
+- [x] **Distinguish names in such a way that the reader knows which one to call.**
 
-- [x] ****Use pronounceable names****
+- [x] **Use pronounceable names**
 
-- [x] ****Use searchable names****
+- [x] **Use searchable names**
   - Use constants instead of hard coding a value, `WORK_DAYS_PER_WEEK = 5` instead of just using 5.
 
-- [x] ****The length of a name should correspond to the size of its scope****
+- [x] **The length of a name should correspond to the size of its scope**
   - There can be a variable `i` inside a `for loop` but `i` should never be a `instance variable`.
 
-- [x] ****Classes and objects should have noun or noun phrase names.****
+- [x] **Classes and objects should have noun or noun phrase names.**
   - Avoid words like `Manager`, `Processor`, `Data`, or `Info` in the name of a class.
   - A class name should not be a verb.
 
-- [x] ****Methods should have verb or verb phrase names****
+- [x] **Methods should have verb or verb phrase names**
 
-- [x] ****When constructors are overloaded, use static factory methods with names that describe the** **arguments****
+- [x] **When constructors are overloaded, use static factory methods with names that describe the** **arguments**
   - `Complex fulcrumPoint = Complex.FromRealNumber(23.0)`is better than `Complex fulcrumPoint = new Complex(23.0)`
 
-- [x] ****Pick one word for one abstract concept and stick with it****
+- [x] **Pick one word for one abstract concept and stick with it**
     - For instance, it’s confusing to have `fetch`, `retrieve`, and `get` as equivalent methods of different classes.
 
-- [x] ****Don’t add gratuitous context****
+- [x] **Don’t add gratuitous context**
   - For application “Gas Station Deluxe,” it is a bad idea to prefix every class with `GSD`.
   - For example use `AccountAddress` instead of `GSDAccountAddress`
 
-- [x] ****It's okay to use computer science terms, algorithm names, pattern names, math terms****
+- [x] **It's okay to use computer science terms, algorithm names, pattern names, math terms**
   - Always using the problem domain to get names might result in complication, hence we can use solution domain names on need.
 
-- [x] ****Add no more context to a name than is necessary****
+- [x] **Add no more context to a name than is necessary**
   - Shorter names are generally better than longer ones, so long as they are clear.
 
 <br/>
@@ -131,26 +131,26 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 
 ## Formatting :rainbow:
 
-- [x] Vertical size of a file should be typically be within the 200 lines limit
+- [x] **Vertical size of a file should be typically be within the 200 lines limit**
   
-- [x] We would like a source file to be like a newspaper article
+- [x] **We would like a source file to be like a newspaper article**
   - The name should be simple but explanatory.
   - The topmost parts of the source file should provide the high-level concepts and algorithms. i.e. the `public methods`
   - Detail should increase as we move downward, until at the end we find the lowest level functions and details in the source file. i.e. the `private methods`
 
-- [x] Vertical Openness Between Concepts
+- [x] **Vertical Openness Between Concepts**
   - Each line represents an expression or a clause, and each group of lines represents a complete thought. Those thoughts should be separated from each other with blank lines.
   - i.e. methods should be vertically separated by breaks
 
-- [x] Variables should be declared as close to their usage as possible
+- [x] **Variables should be declared as close to their usage as possible**
   
-- [x] Instance variables should be declared at the top of the class
+- [x] **Instance variables should be declared at the top of the class**
 
-- [x] If one function calls another, they should be vertically close
+- [x] **If one function calls another, they should be vertically close**
   - The caller should be above the callee.
   - The `private` method which is being called from a `public` method, should appear bellow the `public` method.
 
-- [x] Codes having strong conceptual affinity between them should have less vertical separation between them. 
+- [x] **Codes having strong conceptual affinity between them should have less vertical separation between them**
   For example
   - ```
     static public void assertTrue(boolean condition) {
@@ -167,11 +167,11 @@ A developer checklist derived from the book Clean Code by Robert C Martin
      ```
 
 
-- [x] Lines should not be more than 120 characters
+- [x] **Lines should not be more than 120 characters**
   
-- [x] Use spaces between `operators`, `parameters`, and `commas`
+- [x] **Use spaces between `operators`, `parameters`, and `commas`**
 
-- [x] Indentation
+- [x] **Indentation**
   - Collapsing everything in one line with short `ifs`, `loops`, `functions` is not a good idea.
   - Even for one line `ifs`, one line `whiles` - expand them into multiline and add indent.
 
