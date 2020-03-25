@@ -4,6 +4,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 ## Table of contents :bookmark_tabs:
   - [Meaningful Names](#meaningful-names-u5272)
   - [Functions](#functions-microscope)
+  - [Formatting](#formatting-rainbow)
 
 <br/>
 
@@ -105,7 +106,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 
 - [x] **When a function need more than 2 or 3 arguments, if possible wrap some of those arguments into a class of their own**
 
-- [x] **Functions should not have any side-effect**
+- [x] **Functions should not have any side-effects**
   - It should do one thing, which the name suggests and not do anything else.
 
 - [x] **Functions should either do something or answer something (command query separation)**
@@ -121,5 +122,57 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 
 - [x] **Avoid code duplication**
   - The DRY principle.
+
+<br/>
+
+---
+
+<br/>
+
+## Formatting :rainbow:
+
+- [x] Vertical size of a file should be typically be within the 200 lines limit
+  
+- [x] We would like a source file to be like a newspaper article
+  - The name should be simple but explanatory.
+  - The topmost parts of the source file should provide the high-level concepts and algorithms. i.e. the `public methods`
+  - Detail should increase as we move downward, until at the end we find the lowest level functions and details in the source file. i.e. the `private methods`
+
+- [x] Vertical Openness Between Concepts
+  - Each line represents an expression or a clause, and each group of lines represents a complete thought. Those thoughts should be separated from each other with blank lines.
+  - i.e. methods should be vertically separated by breaks
+
+- [x] Variables should be declared as close to their usage as possible
+  
+- [x] Instance variables should be declared at the top of the class
+
+- [x] If one function calls another, they should be vertically close
+  - The caller should be above the callee.
+  - The `private` method which is being called from a `public` method, should appear bellow the `public` method.
+
+- [x] Codes having strong conceptual affinity between them should have less vertical separation between them. 
+  For example
+  - ```
+    static public void assertTrue(boolean condition) {
+       assertTrue(null, condition);
+     }
+ 
+     static public void assertFalse(String message, boolean condition) {
+       assertTrue(message, !condition);
+     }
+ 
+     static public void assertFalse(boolean condition) {
+       assertFalse(null, condition);
+     }
+     ```
+
+
+- [x] Lines should not be more than 120 characters
+  
+- [x] Use spaces between `operators`, `parameters`, and `commas`
+
+- [x] Indentation
+  - Collapsing everything in one line with short `ifs`, `loops`, `functions` is not a good idea.
+  - Even for one line `ifs`, one line `whiles` - expand them into multiline and add indent.
 
 
