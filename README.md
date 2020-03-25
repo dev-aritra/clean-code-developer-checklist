@@ -5,6 +5,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - [Meaningful Names](#meaningful-names-u5272)
   - [Functions](#functions-microscope)
   - [Formatting](#formatting-rainbow)
+  - [Objects and Data Structures](#objects-and-data-structures-two_men_holding_hands)
 
 <br/>
 
@@ -174,5 +175,51 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 - [x] **Indentation**
   - Collapsing everything in one line with short `ifs`, `loops`, `functions` is not a good idea.
   - Even for one line `ifs`, one line `whiles` - expand them into multiline and add indent.
+
+<br/>
+
+---
+
+<br/>
+
+## Objects and Data Structures :two_men_holding_hands:
+
+- [x] **Hide implementation of classes with Abstraction**
+  - Do not push variables out through getters and setters. Rather have abstract interfaces that allow users to manipulate the data, without having to know its implementation.
+  - We do not want to expose the details of our data. Rather we want to express our data in abstract terms.
+
+- [x] **Data/object anti-symmetry**
+  - Objects should hide their data behind abstractions and expose functions that operate on that data.
+  - Data structure should expose their data and have no meaningful functions.
+
+- [x] **Choosing between Functional code and OO code**
+  - Functional code (code using data structures) makes it easy to add new functions without changing the existing data structures (using pattern matching). 
+  - OO code, on the other hand, makes it easy to add new classes (using polymorphism) without changing existing functions.
+  - In any complex system there are going to be times when we want to add new data types rather than new functions. For these cases objects and OO are most appropriate. 
+  - On the other hand, there will also be times when we’ll want to add new functions as opposed to data types. In that case procedural code and data structures will be more appropriate.
+  - Everything is an object is a myth. Sometimes you should just have simple data structures with procedures operating on them.
+
+- [x] **The law of demeter**
+  - a method f of a class C should only call the methods of these:
+    • C
+    • An object created by f
+    • An object passed as an argument to f
+    • An object held in an instance variable of C
+  - The method should not invoke methods on objects that are returned by any of the allowed functions.
+
+- [x] **Train Wrecks**
+  - ```
+    final String outputDir = ctxt.getOptions().getScratchDir().getAbsolutePath();
+    ```
+    This kind of chaining operations are called train wrecks and should be avoided.
+  - This is a violation of law of demeter as well, as we are invoking methods on objects that are returned.
+  - And this is only permitted if data structures are used instead of objects, as objects are not supposed to expose their data.
+
+- [x] **Hybrids, classes which have functions that do significant things, and they also have either public variables or public accessors and mutators**
+  - This might result in feature envy smell, as we are exposing access to variables, the caller might be tempted to use them.
+
+- [x] **DTOs should not have any behavior , i.e. they should be data-structure and not objects**
+  
+
 
 
