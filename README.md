@@ -2,16 +2,17 @@
 A developer checklist derived from the book Clean Code by Robert C Martin 
 
 ## Table of contents :bookmark_tabs:
-  - [Meaningful Names](#meaningful-names-u5272)
+  - [Naming things](#naming-things-u5272)
   - [Functions](#functions-microscope)
   - [Formatting](#formatting-rainbow)
   - [Objects and Data Structures](#objects-and-data-structures-two_men_holding_hands)
   - [Error handling](#error-handling-interrobang)
+  - [Unit tests](#unit-tests-umbrella)
 
 <br/>
 
 
-## Meaningful Names :u5272:
+## Naming things :u5272:
 
 - [x] **Name should reveal intent**
   - It should tell you why it exists, what it does, and how it is used.
@@ -303,6 +304,46 @@ A developer checklist derived from the book Clean Code by Robert C Martin
     }
     ```
     But this also doesn't solve the problem, instead of `NullPointerException` we are going to get some different `RuntimeException`
+
+<br/>
+
+---
+
+<br/>
+
+## Unit tests :umbrella:
+
+- [x] **Follow three laws of TDD**
+  - You may not write production code until you have written a failing unit test.
+  - You may not write more of a unit test than is sufficient to fail, and not compiling is failing.
+  - You may not write more production code than is sufficient to pass the currently failing test.
+
+- [x] **Keep test clean**
+  - Tests should be first-class citizen. It must be kept as clean as production code
+  - Tests must change as the production code evolves. The dirtier the tests, the harder they are to change.
+
+- [x] **Follow the The Build-Operate-Check pattern**
+  - The first part builds up the test data, the second part operates on that test data, and the third part checks that the operation yielded the expected results.
+  - This is same as `given-when-then` pattern.
+
+- [x] **A Dual Standard**
+  - There are things that you might never do in a production environment that are perfectly fine in a test environment. Usually they involve issues of memory or CPU efficiency.
+
+- [x] **One assert per test (flexible)**
+  - Ideally there should be one assert per test
+  - But it's okay if we have more, at the end of the day the number of asserts in a test ought to be minimized.
+
+- [x] **Single Concept per Test**
+  - Do not operate on different data and then try to assert them in a single test.
+
+- [x] **F.I.R.S.T.**
+  - FAST: Tests should be fast.
+  - INDEPENDENT: Tests should not depend on each other.
+  - REPEATABLE: Tests should be repeatable in any environment.
+  - SELF-VALIDATING: The tests should have a boolean output.
+  - TIMELY: The tests need to be written in a timely fashion. 
+    - Unit tests should be written just before the production code that makes them pass.
+
 
   
   
