@@ -8,6 +8,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - [Objects and Data Structures](#objects-and-data-structures-two_men_holding_hands)
   - [Error handling](#error-handling-interrobang)
   - [Unit tests](#unit-tests-umbrella)
+  - [Class](#class-school_satchel)
 
 <br/>
 
@@ -58,7 +59,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
     - For instance, it’s confusing to have `fetch`, `retrieve`, and `get` as equivalent methods of different classes.
 
 - [x] **Don’t add gratuitous context**
-  - For application “Gas Station Deluxe,” it is a bad idea to prefix every class with `GSD`.
+  - For application "Gas Station Deluxe," it is a bad idea to prefix every class with `GSD`.
   - For example use `AccountAddress` instead of `GSDAccountAddress`
 
 - [x] **It's okay to use computer science terms, algorithm names, pattern names, math terms**
@@ -290,7 +291,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
     public double xProjection(Point p1, Point p2) {
       if (p1 == null || p2 == null) {
          throw InvalidArgumentException(
-           “Invalid argument for MetricsCalculator.xProjection”);
+           "Invalid argument for MetricsCalculator.xProjection");
       }
       return (p2.x – p1.x) * 1.5;
     }
@@ -298,8 +299,8 @@ A developer checklist derived from the book Clean Code by Robert C Martin
     a cleaner way to do this could be
     ```
     public double xProjection(Point p1, Point p2) {
-       assert p1 != null : “p1 should not be null”;
-       assert p2 != null : “p2 should not be null”;
+       assert p1 != null : "p1 should not be null";
+       assert p2 != null : "p2 should not be null";
        return (p2.x – p1.x) * 1.5;
     }
     ```
@@ -344,8 +345,42 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - TIMELY: The tests need to be written in a timely fashion. 
     - Unit tests should be written just before the production code that makes them pass.
 
+<br/>
 
-  
+---
+
+<br/>
+
+## Class :school_satchel:
+
+- [x] **Class organization** :arrow_down:
+  - Variables
+    - Public static constants
+    - private static variables
+    - private instance variables
+  - Public function
+    - Related private functions
+  - Public function
+    - Related private functions
+
+- [x] **Classes should maintain Encapsulation**
+  - Variables and utility functions should be private
+
+-  [x] **Classes should be small and do only one thing**
+  - The name of a class should describe what responsibilities it fulfills.
+  - If we cannot derive a concise name for a class, then it’s likely too large. 
+  - The more ambiguous the class name, the more likely it has too many responsibilities. 
+  - We should also be able to write a brief description of the class in about 25 words, without using the words "if," "and," "or," or "but". If you have to use "and" then probably the class has multiple responsibilities.
+
+- [x] **Single Responsibility Principle**
+  - Classes should have only one reason to change.
+
+- [x] **Classes should have cohesion**
+  - Classes should have a small number of instance variables. Each of the methods of a class should manipulate one or more of those variables.
+  - When classes lose cohesion, split them.
+  - Private method behavior that applies only to a small subset of a class can be a useful heuristic, it's probably a hint that you need to extract that portion into a different class.
+
+- [x] **Classes should depend upon abstractions, not on concrete details (Dependency Inversion)**
   
 
 
