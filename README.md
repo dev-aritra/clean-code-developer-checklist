@@ -9,6 +9,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - [Error handling](#error-handling-interrobang)
   - [Unit tests](#unit-tests-umbrella)
   - [Class](#class-school_satchel)
+  - [Emergence](#emergence-green_book)
 
 <br/>
 
@@ -382,6 +383,31 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 
 - [x] **Classes should depend upon abstractions, not on concrete details (Dependency Inversion)**
   
+<br/>
 
+---
+
+<br/>
+
+## Emergence :green_book:
+
+- [x] **Design must produce a system that runs all tests as writing tests leads to better designs**
+  - A system might have a perfect design on paper, but if there is no simple way to verify that the system actually works as intended, then all the paper effort is questionable.
+  - Making our systems testable pushes us toward a design where our classes are small and single purpose. It’s just easier to test classes that conform to the Single Responsibility Principle. 
+  - The more tests we write, the more we’ll continue to push toward things that are simpler to test. 
+  - Tight coupling makes it difficult to write tests. So, similarly, the more tests we write, the more we use principles like DIP and tools like dependency injection, interfaces, and abstraction to minimize coupling.
+  - The fact that we have these tests eliminates the fear that cleaning up the code will break it, and hence we can refactor and make changes with confidence.
+  
+- [x] **No duplication**
+  - Duplication represents additional work, additional risk, and additional unnecessary complexity.
+  
+- [x] **Expressive**
+  - You can express yourself by choosing good names.
+  - You can also express yourself by using standard nomenclature. Design patterns names, such as COMMAND or VISITOR.
+  - Well-written unit tests are also expressive. A primary goal of tests is to act as documentation by example.
+
+- [x] **Minimal classes and methods**
+  - Create small classes but create one when it's justifiable, creating classes just to reduce out on the no of lines of code is a bad practice.
+  - Creating an interface for each and every class should be avoided. Or fields and behavior must always separated into data classes and behavior classes.
 
 
