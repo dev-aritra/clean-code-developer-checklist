@@ -10,6 +10,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - [Unit tests](#unit-tests-umbrella)
   - [Class](#class-school_satchel)
   - [Emergence](#emergence-green_book)
+  - [Concurrency](#concurrency-arrows_clockwise)
 
 <br/>
 
@@ -205,10 +206,10 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 
 - [x] **The law of demeter**
   - a method f of a class C should only call the methods of these:
-    • C
-    • An object created by f
-    • An object passed as an argument to f
-    • An object held in an instance variable of C
+    - [x] C
+    - [x] An object created by f
+    - [x] An object passed as an argument to f
+    - [x] An object held in an instance variable of C
   - The method should not invoke methods on objects that are returned by any of the allowed functions.
 
 - [x] **Train Wrecks**
@@ -410,4 +411,65 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - Create small classes but create one when it's justifiable, creating classes just to reduce out on the no of lines of code is a bad practice.
   - Creating an interface for each and every class should be avoided. Or fields and behavior must always separated into data classes and behavior classes.
 
+<br/>
 
+---
+
+<br/>
+
+## Concurrency :arrows_clockwise:
+
+- [x] **Concurrency always doesn't improve performance**
+
+- [x] **To make a system concurrent we might need to change the overall design strategy**
+
+- [x] **Understanding potential concurrency issue is important even though it might not be the problem at hand**
+
+- [x] **Keep your concurrency-related code separate from other code**
+
+- [x] **Shared data between threads create synchronization problems, hence take data encapsulation to heart, limit the access of any data that may be shared**
+
+- [x] **Instead of sharing data, create copies of data for different thread and collect them at the end of processing**
+
+- [x] **Threads Should Be as Independent as Possible, and should not data with any other thread**
+
+- [x] **Use thread safe library functions**
+  - Use the provided thread-safe collections.
+  - Use the executor framework for executing unrelated tasks.
+  - Use nonblocking solutions when possible.
+
+- [x] **Use producer consumer model for concurrent operation**
+  - One or more producer threads create some work and place it in a buffer or queue. One or more consumer threads acquire that work from the queue and complete it.
+
+- [x] **Use Readers-Writers model for concurrent operation**
+  - For read heavy systems
+    - Makes writers wait until there are no readers before allowing the writer to perform an update.
+  - For write heavy systems
+    - Writers should be given the priority
+
+- [x] **Use different locking strategies like**
+  - Client-Based Locking
+  - Server-Based Locking
+  - Adapted Server Locking
+
+- [x] **Keep your synchronized sections small and avoid side-effects**
+
+- [x] **Have a shutdown strategy in place which works**
+
+- [x] **Treat spurious failures as candidate threading issues**
+  - Do not ignore system failures as one-offs.
+
+- [x] **Get your non-threaded code working first**
+  - Do not try to chase down nonthreading bugs and threading bugs at the same time. Make sure your code works outside of threads.
+
+- [x] **Make your threaded code pluggable**
+  - Make your thread-based code especially pluggable so that you can run it in various configurations.
+
+- [x] **Make your threaded code tunable**
+  - Allow configurations like, number of threads to be easily tuned.
+
+- [x] **Run with more threads than processors**
+
+- [x] **Run on different platforms**
+
+- [x] **Instrument your code to try and force failures**
