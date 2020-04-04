@@ -11,6 +11,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - [Class](#class-school_satchel)
   - [Emergence](#emergence-green_book)
   - [Concurrency](#concurrency-arrows_clockwise)
+  - [Code smells](code-smells-speak_no_evil)
 
 <br/>
 
@@ -473,3 +474,48 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 - [x] **Run on different platforms**
 
 - [x] **Instrument your code to try and force failures**
+
+<br/>
+
+---
+
+<br/>
+
+## Code smells :speak_no_evil:
+
+- [x] **If you see commented out code. delete it**
+
+- [x] **Unused code should be deleted**
+
+- [x] **Implementation should be obvious**
+
+- [x] **Look for every boundary condition and write a test for it**
+
+- [x] **Base classes should know nothing about their derivatives**
+
+- [x] **Code should be consistent**
+  - If within a particular function you use a variable named response to hold an HttpServletResponse, then use the same variable name consistently in the other functions that use HttpServletResponse objects
+
+- [x] **Prefer nonstatic methods to static methods**
+  - If you really want a function to be static, make sure that there is no chance that you’ll want it to behave polymorphically.
+
+- [x] **Avoid Negative Conditionals**
+  - `if (buffer.shouldCompact())` is better than `if (!buffer.shouldNotCompact())`
+
+- [x] **Encapsulate Boundary Conditions**
+  - ```
+    if(level + 1 < tags.length) {
+     parts = new Parse(body, tags, level + 1, offset + endTag);
+     body = null
+     }
+     ```
+   `level + 1` is a boundary operation which is repeated so we can wrap that in a variable like `nextLevel = level + 1`
+
+- [x] **Avoid Long Import Lists by Using Wildcards**
+
+- [x] **Don’t Inherit Constants**
+  - Use static imports instead
+
+- [x] **Use enums and not `public static final ints/strings`**
+
+
