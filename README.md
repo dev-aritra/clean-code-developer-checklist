@@ -11,7 +11,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - [Class](#class-school_satchel)
   - [Emergence](#emergence-green_book)
   - [Concurrency](#concurrency-arrows_clockwise)
-  - [Code smells](code-smells-speak_no_evil)
+  - [Code smells](#code-smells-speak_no_evil)
 
 <br/>
 
