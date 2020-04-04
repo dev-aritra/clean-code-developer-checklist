@@ -82,7 +82,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 - [x] **Function should be small**
   - They should be smaller :stuck_out_tongue:
   
-- [x] **Blocks inside `if`, `else`, `while` should be 1 line long, and that should probably be a function call**
+- [x] **Blocks inside `if`, `else`, `while` should be one line long, and that should probably be a function call**
   - This keep the enclosing function small.
   - It also adds documentary value because the function called within the block can have a nicely descriptive name.
   
