@@ -119,6 +119,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 - [x] **When a function need more than 2 or 3 arguments, if possible wrap some of those arguments into a class of their own**
 
 - [x] **Functions should not have any side-effects**
+  - Mutation of input parameters is to be avoided.
 
 - [x] **Function should do one thing, which the name suggests and not do anything else**
 
