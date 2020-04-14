@@ -51,11 +51,12 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 
 - [x] **Classes and objects should have noun or noun phrase names.**
   - Avoid words like `Manager`, `Processor`, `Data`, or `Info` in the name of a class.
+  - If your class name ends with `er`,  `or` or `utils`, you should consider re looking at the responsibility of the class.
   - A class name should not be a verb.
 
 - [x] **Methods should have verb or verb phrase names**
 
-- [x] **When constructors are overloaded, use static factory methods with names that describe the** **arguments**
+- [x] **When constructors are overloaded, try to use static factory methods with names that describe the** **arguments**
   - `Complex fulcrumPoint = Complex.FromRealNumber(23.0)`is better than `Complex fulcrumPoint = new Complex(23.0)`
 
 - [x] **Pick one word for one abstract concept and stick with it**
@@ -98,14 +99,18 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - We need to make sure that the statements within our function are all at the same level of abstraction.
 
 - [x] **The Stepdown Rule**
-  -  When we can read the program, descending one level of abstraction at a time as we read down the list of functions.
+  - The abstraction of a class should decrease as we go reading downwards.
   
 - [x] **Switch statement should be buried in a low-level class, should appear only once, to create polymorphic objects and is never repeated**
   - For example it can be in an `Abstract Factory`, but not to be seen anywhere else. 
 
-- [x] **Functions should have at max 3 arguments**
+- [x] **Try to have functions with 3 arguments**
+  - Try to keep no of arguments to 3/4.
+  - It should never go beyond 4.
 
 - [x] **If a function is going to transform its input argument, the transformation should appear as the return value**
+  - If a function does transformation operation of it's input, then the output of that function should be the transformed value
+  - If a function is doing a transform of the input, it should do that that only.
 
 - [x] **Flag arguments should be avoided**
   - It does one thing if the flag is `true` and another if the flag is `false`, hence violating Single Responsibility.
@@ -114,7 +119,8 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 - [x] **When a function need more than 2 or 3 arguments, if possible wrap some of those arguments into a class of their own**
 
 - [x] **Functions should not have any side-effects**
-  - It should do one thing, which the name suggests and not do anything else.
+
+- [x] **Function should do one thing, which the name suggests and not do anything else**
 
 - [x] **Functions should either do something or answer something (command query separation)**
   - Either function should change the state of something, or it should return something.
@@ -143,7 +149,13 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 - [x] **We would like a source file to be like a newspaper article**
   - The name should be simple but explanatory.
   - The topmost parts of the source file should provide the high-level concepts and algorithms. i.e. the `public methods`
-  - Detail should increase as we move downward, until at the end we find the lowest level functions and details in the source file. i.e. the `private methods`
+    - We should be able to tell what a class does by looking at the upper portion of the class.
+    - We should be able to see how it does, when we scroll downwards. 
+  - Detail should increase as we move downward we should see more implementation details i.e. the `private methods`
+  - The general rule for arranging methods
+    - public
+    - protected 
+    - private
 
 - [x] **Vertical Openness Between Concepts**
   - Each line represents an expression or a clause, and each group of lines represents a complete thought. Those thoughts should be separated from each other with blank lines.
@@ -155,21 +167,17 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 
 - [x] **If one function calls another, they should be vertically close**
   - The caller should be above the callee.
-  - The `private` method which is being called from a `public` method, should appear bellow the `public` method.
+  - The `private` method which is being called from a `public` method, should appear close to the `public` method.
 
 - [x] **Codes having strong conceptual affinity between them should have less vertical separation between them**
   For example
-  - ```
-    static public void assertTrue(boolean condition) {
-       assertTrue(null, condition);
+  ```
+    public static void assertTrue(boolean condition) {
+       assertThat(condition).isTrue();
      }
- 
-     static public void assertFalse(String message, boolean condition) {
-       assertTrue(message, !condition);
-     }
- 
-     static public void assertFalse(boolean condition) {
-       assertFalse(null, condition);
+
+     public static void assertFalse(boolean condition) {
+       assertThat(condition).isFalse()
      }
      ```
 
@@ -177,6 +185,9 @@ A developer checklist derived from the book Clean Code by Robert C Martin
 - [x] **Lines should not be more than 120 characters**
   
 - [x] **Use spaces between `operators`, `parameters`, and `commas`**
+
+- [x] **Use a consistent formatting style across the team**
+  - Use the same `.editorconfig` file across the team.
 
 - [x] **Indentation**
   - Collapsing everything in one line with short `ifs`, `loops`, `functions` is not a good idea.
