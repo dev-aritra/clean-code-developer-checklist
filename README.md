@@ -384,8 +384,6 @@ A developer checklist derived from the book **Clean Code by Robert C Martin**
     - private instance variables
   - Public function
     - Related private functions
-  - Public function
-    - Related private functions
 
 - [x] **Classes should maintain Encapsulation**
   - Variables and utility functions should be private
