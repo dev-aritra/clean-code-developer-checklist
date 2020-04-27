@@ -45,6 +45,9 @@ A developer checklist derived from the book **Clean Code by Robert C Martin**
 
 - [x] **Use searchable names**
   - Use constants instead of hard coding a value, `WORK_DAYS_PER_WEEK = 5` instead of just using 5.
+  
+- [x] **Include units of a measurable entity to its variable name**
+  - Using `expiryTimeInSeconds` is better than `expiryTime`
 
 - [x] **The length of a name should correspond to the size of its scope**
   - There can be a variable `i` inside a `for loop` but `i` should never be a `instance variable`.
