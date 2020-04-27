@@ -232,6 +232,10 @@ A developer checklist derived from the book Clean Code by Robert C Martin
     This kind of chaining operations are called train wrecks and should be avoided.
   - This is a violation of law of demeter as well, as we are invoking methods on objects that are returned.
   - And this is only permitted if data structures are used instead of objects, as objects are not supposed to expose their data.
+  - But chained transformations are fine though 
+  ```
+  someList.map(..).map(..).filter(..)
+  ```
 
 - [x] **Hybrids, classes which have functions that do significant things, and they also have either public variables or public accessors and mutators**
   - This might result in feature envy smell, as we are exposing access to variables, the caller might be tempted to use them.
@@ -320,6 +324,7 @@ A developer checklist derived from the book Clean Code by Robert C Martin
     }
     ```
     But this also doesn't solve the problem, instead of `NullPointerException` we are going to get some different `RuntimeException`
+  - If your language supports it, use a `optional` pattern maybe.
 
 <br/>
 
@@ -346,8 +351,9 @@ A developer checklist derived from the book Clean Code by Robert C Martin
   - There are things that you might never do in a production environment that are perfectly fine in a test environment. Usually they involve issues of memory or CPU efficiency.
 
 - [x] **One assert per test (flexible)**
-  - Ideally there should be one assert per test
+  - Ideally there should be one assert per test.
   - But it's okay if we have more, at the end of the day the number of asserts in a test ought to be minimized.
+  - The goal is to have one logical assert per test or to test a single behavior in a unit test.
 
 - [x] **Single Concept per Test**
   - Do not operate on different data and then try to assert them in a single test.
