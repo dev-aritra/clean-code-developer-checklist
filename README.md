@@ -1,5 +1,5 @@
 # Clean Code Developer Checklist
-A developer checklist derived from the book, **Clean Code by Robert C Martin** 
+A developer checklist derived from the book **Clean Code by Robert C Martin** 
 
 ## Table of contents :bookmark_tabs:
   - [Naming things](#naming-things-u5272)
