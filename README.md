@@ -36,7 +36,7 @@ A developer checklist derived from the book **Clean Code by Robert C Martin**
 
 - [x] **Avoid using noise words**
   - `ProductData` and `ProductInfo` kind of means the same thing.
-  - Similarly words like `a`, `an`, `the` are also noise words.
+  - Similarly words like `a`, `an`, `the` are also noise words, for example naming a variable `product` is sufficient, no need to `theProduct`
   - Noise words are also **redundant**, use `name` instead of `nameString`.
 
 - [x] **Distinguish names in such a way that the reader knows which one to call.**
@@ -109,7 +109,8 @@ A developer checklist derived from the book **Clean Code by Robert C Martin**
 
 - [x] **Try to have functions with 3 arguments**
   - Try to keep no of arguments to 3/4.
-  - It should never go beyond 4.
+  - The ideal number of arguments for a function is zero (niladic). Next comes one (monadic), followed closely by two (dyadic). Three arguments (triadic) should be avoided where possible. More than three (polyadic) requires very special justification
+  - Practically it should never go beyond 4.
 
 - [x] **If a function is going to transform its input argument, the transformation should appear as the return value**
   - If a function does transformation operation of it's input, then the output of that function should be the transformed value
@@ -451,7 +452,7 @@ A developer checklist derived from the book **Clean Code by Robert C Martin**
 
 - [x] **Instead of sharing data, create copies of data for different thread and collect them at the end of processing**
 
-- [x] **Threads Should Be as Independent as Possible, and should not data with any other thread**
+- [x] **Threads Should Be as Independent as Possible, and should not share data with any other thread**
 
 - [x] **Use thread safe library functions**
   - Use the provided thread-safe collections.
