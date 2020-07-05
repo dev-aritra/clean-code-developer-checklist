@@ -245,6 +245,7 @@ A developer checklist derived from the book **Clean Code by Robert C Martin**
   - This might result in feature envy smell, as we are exposing access to variables, the caller might be tempted to use them.
 
 - [x] **DTOs should not have any behavior , i.e. they should be data-structure and not objects**
+  - DTOs/ Value objects should have a `equals` method.
 
 <br/>
 
