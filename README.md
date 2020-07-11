@@ -1,5 +1,5 @@
 # Clean Code Developer Checklist
-A developer checklist derived from the book **Clean Code by Robert C Martin** 
+A developer checklist mostly derived from the book **Clean Code by Robert C Martin** 
 
 ## Table of contents :bookmark_tabs:
   - [Naming things](#naming-things-u5272)
@@ -246,7 +246,8 @@ A developer checklist derived from the book **Clean Code by Robert C Martin**
 
 - [x] **DTOs should not have any behavior , i.e. they should be data-structure and not objects**
   - DTOs/ Value objects should have a `equals` method.
-
+  - Any operation in a value object should return a new instance of that class.
+  
 <br/>
 
 ---
