@@ -12,6 +12,7 @@ A developer checklist mostly derived from the book **Clean Code by Robert C Mart
   - [Emergence](#emergence-green_book)
   - [Concurrency](#concurrency-arrows_clockwise)
   - [Code smells](#code-smells-speak_no_evil)
+  - [Honourable mentions](#honourable-mentions-basecamp)
 
 <br/>
 
@@ -540,4 +541,9 @@ A developer checklist mostly derived from the book **Clean Code by Robert C Mart
 
 - [x] **Use enums and not `public static final ints/strings`**
 
+## Honourable mentions :basecamp:
+In this section I am going to list down few things which are absolutely legendary but I missed mentioning them. There are tons of resources available online for these topics, you can read them from there.
 
+- [x] **The OG S.O.L.I.D principles, no clean code discussion is complete without them**
+
+- [x] **Object Calisthenics**
